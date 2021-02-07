@@ -61,6 +61,33 @@ Route::view('/about', 'about', ["tmp" => "Some datas"]);
 // Route::redirect("/contact", "/about");
 
 
-Route::get("/news/{id}/{slg}", function($id, $slg) {
-  return "$id | $slg";
+// Route::get('/articles/{id}', function($id) {
+//   return "Article № $id";
+// });
+
+
+// Route::get('/articles/{id}/{slug}', function($id, $slug) {
+//   return "Article $id | $slug";
+// }) -> where( ['id' => '[0-9]+', 'slug' => '[a-zA-Z0-9-]+' ]);
+
+
+Route::prefix('admin') -> group(function() {
+
+  Route::get('/posts', function() {
+    return "Posts List";
+  });
+  
+  
+  Route::get('/post/create', function() {
+    return "Create post";
+  });
+  
+  
+  Route::get('/post/{id}/edit', function($id) {
+    return "Edit $id post";
+  });
+  
+
 });
+
+
