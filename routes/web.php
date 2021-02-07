@@ -58,4 +58,9 @@ Route::match(['get', 'post'], '/contact2', function() {
 
 Route::view('/about', 'about', ["tmp" => "Some datas"]);
 
-Route::redirect("/contact", "/about");
+// Route::redirect("/contact", "/about");
+
+
+Route::get("/news/{id}/{slg}", function($id, $slg) {
+  return "$id | $slg";
+});
